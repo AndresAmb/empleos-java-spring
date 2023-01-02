@@ -8,7 +8,25 @@ public class Vacante {
     private String descripcion;
     private Date fecha;
     private Double salario;
-
+    private Integer disponible;
+    private String imagen="no-image.png";
+    
+    public String getImagen() {
+        return imagen;
+    }
+    
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    public Integer getDisponible() {
+        return disponible;
+    }
+    
+    public void setDisponible(Integer disponible) {
+        this.disponible = disponible;
+    }
+    
     public Integer getId() {
         return id;
     }
