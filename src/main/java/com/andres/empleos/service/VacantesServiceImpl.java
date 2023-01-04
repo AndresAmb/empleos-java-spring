@@ -9,9 +9,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Service
-public class VacantesServerImpl implements IVacantesService{
+public class VacantesServiceImpl implements IVacantesService{
     private List<Vacante> lista = null;
-    public VacantesServerImpl() {
+    public VacantesServiceImpl() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         lista = new LinkedList<Vacante>();
         try{
@@ -22,6 +22,7 @@ public class VacantesServerImpl implements IVacantesService{
             vacante1.setDescripcion("Solicitamos Ing. Civil para diseñar puente peatonal.");
             vacante1.setFecha(sdf.parse("08-02-2019"));
             vacante1.setSalario(14000.0);
+            vacante1.setEstatus("Aprobada");
             vacante1.setDisponible(1);
             vacante1.setImagen("empresa1.png");
         
@@ -32,6 +33,7 @@ public class VacantesServerImpl implements IVacantesService{
             vacante2.setDescripcion("Empresa importante solicita contador con 5 años de experiencia titulado.");
             vacante2.setFecha(sdf.parse("09-02-2019"));
             vacante2.setSalario(12000.0);
+            vacante2.setEstatus("Creada");
             vacante2.setDisponible(0);
             vacante2.setImagen("empresa2.png");
         
@@ -42,6 +44,7 @@ public class VacantesServerImpl implements IVacantesService{
             vacante3.setDescripcion("Empresa internacional solicita ingeniero mecánico para mantenimiento de la instalación eléctrica.");
             vacante3.setFecha(sdf.parse("10-02-2019"));
             vacante3.setSalario(8500.0);
+            vacante3.setEstatus("Aprobada");
             vacante3.setDisponible(0);
         
             //Oferta de Trabajo 4
@@ -51,6 +54,7 @@ public class VacantesServerImpl implements IVacantesService{
             vacante4.setDescripcion("Solicitamos Diseñador Gráfico tituado para diseñar publicidad de la empresa");
             vacante4.setFecha(sdf.parse("11-02-2019"));
             vacante4.setSalario(7500.0);
+            vacante4.setEstatus("Eliminada");
             vacante4.setDisponible(1);
             vacante4.setImagen("empresa4.png");
         
@@ -80,5 +84,10 @@ public class VacantesServerImpl implements IVacantesService{
             }
         }
         return null;
+    }
+    
+    @Override
+    public void guardar(Vacante vacante) {
+        lista.add(vacante);
     }
 }
