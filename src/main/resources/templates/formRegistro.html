@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
@@ -7,7 +7,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="favicon.ico">
 
-	<title>EmpleosApp | Creación de Categorías</title>
+	<title>EmpleosApp | Formulario de registro</title>
 	<!-- Bootstrap core CSS -->
 	<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	<!-- Custom styles for this template -->
@@ -24,34 +24,37 @@
 	<div class="container">
 
 		<div class="card">
-			<h4 class="card-header"><strong>Datos de la categoría</strong></h4>
+			<h4 class="card-header"><strong>Formulario de registro</strong></h4>
 			<div class="card-body">
-				<form th:action="@{/categorias/save}" method="post" th:object="${categoria}">
-					<div th:if="${#fields.hasErrors('*')}"class='alert alert-danger' role='alert'>
-						Por favor corrija los siguientes errores:
-						<ul>
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
-						</ul>
-					</div>
+				<form th:action="@{/signup}" th:object="${usuario}" method="post">
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-3">
 							<div class="form-group">
-								<input type="hidden" th:field="*{id}">
 								<label for="nombre">Nombre</label>
-								<input type="text" class="form-control" th:field="*{nombre}" placeholder="Escriba el nombre de la categoria" required="required">
+								<input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre" placeholder="Escriba su nombre" required="required">
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-3">
 							<div class="form-group">
-								<label for="descripcion">Descripción</label>
-								<textarea class="form-control" th:field="*{descripcion}" rows="2"></textarea>
+								<label for="email">Correo electrónico</label>
+								<input type="email" class="form-control" th:field="*{email}" id="email" name="email" placeholder="Escriba su correo electrónico" required="required">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="username">Username</label>
+								<input type="text" class="form-control" th:field="*{username}" id="username" name="username" placeholder="Escriba su nombre de usuario" required="required">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" th:field="*{password}" id="password" name="password" placeholder="Escriba su clave de acceso" required="required">
 							</div>
 						</div>
 					</div>
 					<hr>
-					<button type="submit" title="Guardar el registro." class="btn btn-primary">Guardar</button>
+					<button type="submit" title="Quiero registrarme." class="btn btn-primary">Registrarse</button>
 				</form>
 			</div>
 		</div>
