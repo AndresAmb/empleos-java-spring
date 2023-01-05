@@ -102,6 +102,10 @@ public class Vacante {
         this.salario = salario;
     }
     
+    public void reset(){
+        this.imagen = null;
+    }
+    
     @Override
     public String toString() {
         return "Vacante{" +
