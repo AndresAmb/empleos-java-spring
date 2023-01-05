@@ -17,7 +17,7 @@
       <th>Fecha de Publicación</th>
       <th>Salario</th>
       <th>Descripción</th>
-      <th>Disponible</th>
+      <th>destacado</th>
       <th>Detalle</th>
       <th>Borrar</th>
     </tr>
@@ -32,12 +32,12 @@
       <td th:text = "${vacante.salario}"></td>
       <td th:text = "${vacante.descripcion}"></td>
       <!--
-      <td th:text = "${vacante.disponible}"></td>
-      <td th:text = "${vacante.disponible == 1} ? 'Sí' : 'No' "></td>
+      <td th:text = "${vacante.destacado}"></td>
+      <td th:text = "${vacante.destacado == 1} ? 'Sí' : 'No' "></td>
       -->
       <td>
-          <span th:if="${vacante.disponible==1}" class="badge bg-success">Sí</span>
-          <span th:unless="${vacante.disponible==1}" class="badge bg-danger">No</span>
+          <span th:if="${vacante.destacado==1}" class="badge bg-success">Sí</span>
+          <span th:unless="${vacante.destacado==1}" class="badge bg-danger">No</span>
       </td>
       <td>
           <a th:href="@{/vacantes/view/{id} (id=${vacante.id})}" class="btn btn-outline-primary">Detalle</a>

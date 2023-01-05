@@ -1,17 +1,25 @@
 package com.andres.empleos.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="Vacantes")
 public class Vacante {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private String descripcion;
     private Date fecha;
     private Double salario;
-    private Integer disponible;
+    private Integer destacado;
     private String imagen="no-image.png";
     private String estatus;
     private String detalles;
+    //@Transient
+    @OneToOne
+    @JoinColumn(name = "idCategoria")
     private Categoria categoria;
     
     public Categoria getCategoria() {
@@ -46,50 +54,50 @@ public class Vacante {
         this.imagen = imagen;
     }
     
-    public Integer getDisponible() {
-        return disponible;
+    public Integer getDestacado() {
+        return destacado;
     }
     
-    public void setDisponible(Integer disponible) {
-        this.disponible = disponible;
+    public void setDestacado(Integer destacado) {
+        this.destacado = destacado;
     }
     
     public Integer getId() {
         return id;
     }
-
+    
     public void setId(Integer id) {
         this.id = id;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
-
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public String getDescripcion() {
         return descripcion;
     }
-
+    
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
+    
     public Date getFecha() {
         return fecha;
     }
-
+    
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
+    
     public Double getSalario() {
         return salario;
     }
-
+    
     public void setSalario(Double salario) {
         this.salario = salario;
     }
@@ -102,7 +110,7 @@ public class Vacante {
                 ", descripcion='" + descripcion + '\'' +
                 ", fecha=" + fecha +
                 ", salario=" + salario +
-                ", disponible=" + disponible +
+                ", destacado=" + destacado +
                 ", imagen='" + imagen + '\'' +
                 ", estatus='" + estatus + '\'' +
                 ", detalles='" + detalles + '\'' +
@@ -110,3 +118,4 @@ public class Vacante {
                 '}';
     }
 }
+
